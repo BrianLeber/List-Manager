@@ -1,12 +1,73 @@
+html {
+  background-image: url("../img/7644.jpg");
+}
+
+body {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+  -ms-grid-rows: 2fr 1fr auto;
+      grid-template-rows: 2fr 1fr auto;
+      grid-template-areas: "my-Headline my-Headline my-Headline my-Headline" "button button button button" "ul ul ul ul";
+}
+
+button {
+  display: inline-block;
+  width: 90%;
+  padding: 0.3em 0.6em;
+  border-radius: 0.5em;
+  border: none;
+  font: inherit;
+  color: white;
+  background-color: green;
+  /* show a hand cursor on hover; some argue that we
+  should keep the default arrow cursor for buttons */
+  cursor: pointer;
+}
+
 ul {
+  background: whitesmoke;
+  padding: 0.25em;
   list-style: none;
+  border-style: inset;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  min-width: 280%;
+  min-height: 50px;
+  cursor: pointer;
+}
+
+li {
+  padding: 0.25em;
 }
 
 .active {
+  color: black;
+  font-style: italic;
+  font-weight: bold;
   background-color: yellow;
 }
 
+.inactive {
+  background-color: black;
+  color: white;
+}
+
 #my-Headline {
-  background-color: green;
+  border-radius: 0.5em;
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 4;
+  grid-area: my-Headline;
+  margin: 5%;
+  display: block;
+  height: 1em;
+  width: 80%;
+  font-size: 1.2em;
+  padding: 0.5em;
+  text-align: center;
+  background-color: skyblue;
 }
 /*# sourceMappingURL=main.css.map */
