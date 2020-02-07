@@ -1,15 +1,24 @@
 html {
-  background-image: url("../img/7644.jpg");
+  background: black url("../img/7644.jpg") fixed no-repeat bottom;
 }
 
 body {
   display: -ms-grid;
   display: grid;
+  -ms-grid-columns: 1fr;
+      grid-template-columns: 1fr;
+  -ms-grid-rows: 1fr 1fr auto;
+      grid-template-rows: 1fr 1fr auto;
+      grid-template-areas: "my-Headline" "section" "list";
+}
+
+section {
+  display: -ms-grid;
+  display: grid;
   -ms-grid-columns: 1fr 1fr 1fr 1fr;
       grid-template-columns: 1fr 1fr 1fr 1fr;
-  -ms-grid-rows: 2fr 1fr auto;
-      grid-template-rows: 2fr 1fr auto;
-      grid-template-areas: "my-Headline my-Headline my-Headline my-Headline" "button button button button" "ul ul ul ul";
+  -ms-grid-rows: 2em;
+      grid-template-rows: 2em;
 }
 
 button {
@@ -26,7 +35,14 @@ button {
   cursor: pointer;
 }
 
+button:hover {
+  background-color: darkgreen;
+}
+
 ul {
+  -ms-grid-row: 3;
+  -ms-grid-column: 1;
+  grid-area: list;
   background: whitesmoke;
   padding: 0.25em;
   list-style: none;
@@ -34,7 +50,7 @@ ul {
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
-  min-width: 280%;
+  min-width: 90%;
   min-height: 50px;
   cursor: pointer;
 }
@@ -59,7 +75,6 @@ li {
   border-radius: 0.5em;
   -ms-grid-row: 1;
   -ms-grid-column: 1;
-  -ms-grid-column-span: 4;
   grid-area: my-Headline;
   margin: 5%;
   display: block;
@@ -69,5 +84,31 @@ li {
   padding: 0.5em;
   text-align: center;
   background-color: skyblue;
+}
+
+@media (min-width: 530px) {
+  body {
+    -ms-grid-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+    -ms-grid-rows: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        grid-template-areas: "my-Headline buttons" "list list";
+  }
+  #buttons {
+    -ms-grid-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+    -ms-grid-rows: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+  }
+  button {
+    height: 2.5em;
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+  }
+  ul {
+    margin: 2em;
+    max-width: 80%;
+  }
 }
 /*# sourceMappingURL=main.css.map */

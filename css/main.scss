@@ -1,18 +1,22 @@
 // tag | #id | .class
 
 html {
-  background-image: url("../img/7644.jpg");
+  background: black url("../img/7644.jpg") fixed no-repeat bottom;
 }
 body {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-rows: 2fr 1fr auto;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr auto;
   grid-template-areas:
-    "my-Headline my-Headline my-Headline my-Headline"
-    "button button button button"
-    "ul ul ul ul";
+    "my-Headline"
+    "section"
+    "list";
 }
-
+section {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 2em;
+}
 button {
   display: inline-block;
   width: 90%;
@@ -26,14 +30,18 @@ button {
   should keep the default arrow cursor for buttons */
   cursor: pointer;
 }
+button:hover {
+  background-color: darkgreen;
+}
 
 ul {
+  grid-area: list;
   background: whitesmoke;
   padding: 0.25em;
   list-style: none;
   border-style: inset;
   width: fit-content;
-  min-width: 280%;
+  min-width: 90%;
   min-height: 50px;
   cursor: pointer;
 }
@@ -64,4 +72,26 @@ li {
   padding: 0.5em;
   text-align: center;
   background-color: skyblue;
+}
+
+@media (min-width: 530px) {
+  body {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas:
+      "my-Headline buttons"
+      "list list";
+  }
+  #buttons {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+  }
+  button {
+    height: 2.5em;
+    align-self: center;
+  }
+  ul {
+    margin: 2em;
+    max-width: 80%;
+  }
 }
